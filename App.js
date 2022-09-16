@@ -1,10 +1,18 @@
 import React from 'react';
-import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, Text, View} from 'react-native';
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import CategoryScreen from './screens/categoryScreen';
 
 export default function App() {
-  return <CategoryScreen />;
+  return (
+    <View style={styles.container}>
+      <StatusBar style={'light'} />
+      <CategoryScreen />
+    </View>
+  );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#24180f',
+  },
+});
