@@ -1,18 +1,16 @@
 import React from 'react';
-import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CategoryScreen from './screens/categoryScreen';
-
+import MealsOverViewScreen from './screens/mealsOverViewScree';
+const Stack = createNativeStackNavigator();
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar style={'light'} />
-      <CategoryScreen />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="MealsCategory">
+        <Stack.Screen name="MealsCategory" component={CategoryScreen} />
+        <Stack.Screen name="MealsOverview" component={MealsOverViewScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#24180f',
-  },
-});

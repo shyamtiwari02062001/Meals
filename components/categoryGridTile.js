@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, Pressable, Text, StyleSheet} from 'react-native';
-const CategoryGriteTile = ({title, color}) => {
+const CategoryGriteTile = ({title, color, onPress}) => {
   return (
     <View style={[styles.gridItem, {backgroundColor: color}]}>
       <Pressable
         android_ripple={{color: '#fff'}}
+        onPress={onPress}
         style={({pressed}) => [
           styles.button,
           pressed ? styles.buttonPressed : null,
