@@ -19,7 +19,6 @@ const CategoryScreen = ({navigation}) => {
     );
   };
   return (
-    <View style={styles.container}>
       <FlatList
         showsVerticalScrollIndicator={false}
         data={CATEGORIES}
@@ -27,12 +26,9 @@ const CategoryScreen = ({navigation}) => {
         keyExtractor={item => item.id}
         numColumns={2}
       />
-    </View>
   );
 };
 export default CategoryScreen;
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#24180f',
-  },
+
 });
