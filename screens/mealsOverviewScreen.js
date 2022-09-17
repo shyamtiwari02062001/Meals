@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
 import MealItem from '../components/MealItem';
 import {CATEGORIES, MEALS} from '../data/dummyData';
@@ -19,8 +19,10 @@ const MealsOverViewScreen = ({route, navigation}) => {
       />
     );
   };
-  const categoryTitle = CATEGORIES.find(category => category.id === id).title;
-  navigation.setOptions({title: categoryTitle});
+  useLayoutEffect(() => {
+    const categoryTitle = CATEGORIES.find(category => category.id === id).title;
+    navigation.setOptions({title: categoryTitle});
+  });
   return (
     <View style={styles.container}>
       <FlatList
