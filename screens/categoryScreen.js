@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, View, StyleSheet} from 'react-native';
+import {FlatList} from 'react-native';
 import CategoryGriteTile from '../components/categoryGridTile';
 import {CATEGORIES} from '../data/dummyData';
 
@@ -19,16 +19,13 @@ const CategoryScreen = ({navigation}) => {
     );
   };
   return (
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={CATEGORIES}
-        renderItem={renderCategoryItem}
-        keyExtractor={item => item.id}
-        numColumns={2}
-      />
+    <FlatList
+      showsVerticalScrollIndicator={false}
+      data={CATEGORIES}
+      renderItem={renderCategoryItem}
+      keyExtractor={item => item.id}
+      numColumns={2}
+    />
   );
 };
 export default CategoryScreen;
-const styles = StyleSheet.create({
-
-});

@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
 import MealItem from '../components/MealItem';
-import {MEALS} from '../data/dummyData';
-const MealsOverViewScreen = ({route}) => {
+import {CATEGORIES, MEALS} from '../data/dummyData';
+const MealsOverViewScreen = ({route, navigation}) => {
   const id = route.params.categoryId;
   const displayedMeals = MEALS.filter(mealItem => {
     return mealItem.categoryIds.indexOf(id) >= 0;
@@ -18,6 +18,8 @@ const MealsOverViewScreen = ({route}) => {
       />
     );
   };
+  const categoryTitle = CATEGORIES.find(category => category.id === id).title;
+  navigation.setOptions({title: categoryTitle});
   return (
     <View style={styles.container}>
       <FlatList
