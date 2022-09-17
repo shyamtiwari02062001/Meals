@@ -7,6 +7,7 @@ const MealsOverViewScreen = ({route, navigation}) => {
   const displayedMeals = MEALS.filter(mealItem => {
     return mealItem.categoryIds.indexOf(id) >= 0;
   });
+
   const renderMealItem = itemData => {
     return (
       <MealItem

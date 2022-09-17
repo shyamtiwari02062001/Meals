@@ -1,5 +1,5 @@
-import React from 'react';
-import {Text, Image, View, StyleSheet, ScrollView} from 'react-native';
+import React, {useLayoutEffect} from 'react';
+import {Text, Image, View, Button, StyleSheet, ScrollView} from 'react-native';
 import List from '../components/MealDetail/list';
 import Subtitle from '../components/MealDetail/subtitle';
 import MealDetail from '../components/MealDetails';
@@ -7,6 +7,13 @@ import {MEALS} from '../data/dummyData';
 const MealDetailScreen = ({route, navigation}) => {
   const mealId = route.params.mealId;
   const selectedMeal = MEALS.find(meal => meal.id === mealId);
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <Button title="Tap Me" onPress={() => console.log('dhdbh')} />;
+      },
+    });
+  });
   return (
     <ScrollView
       style={styles.rootConatiner}
