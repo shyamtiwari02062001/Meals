@@ -8,6 +8,7 @@ import MealsOverViewScreen from './screens/mealsOverviewScreen';
 import MealDetailScreen from './screens/mealDetailScreen';
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
+import {Image} from 'react-native';
 import Favorite from './screens/favorites';
 const DrawerNavigator = () => {
   return (
@@ -16,13 +17,35 @@ const DrawerNavigator = () => {
         headerStyle: {backgroundColor: '#351401'},
         headerTintColor: '#fff',
         sceneContainerStyle: {backgroundColor: '#3f2f25'},
+        drawerContentStyle: {backgroundColor: '#351401'},
+        drawerInactiveTintColor: '#fff',
+        drawerActiveTintColor: '#e4baa1',
       }}>
       <Drawer.Screen
         name="Category"
         component={CategoryScreen}
-        options={{title: 'All Categories'}}
+        options={{
+          title: 'All Categories',
+          drawerIcon: ({color, size}) => (
+            <Image
+              source={require('./assets/list.png')}
+              style={{tintColor: color, height: size, width: size}}
+            />
+          ),
+        }}
       />
-      <Drawer.Screen name="Favorite" component={Favorite} />
+      <Drawer.Screen
+        name="Favorite"
+        component={Favorite}
+        options={{
+          drawerIcon: ({color, size}) => (
+            <Image
+              source={require('./assets/star.png')}
+              style={{tintColor: color, height: size, width: size}}
+            />
+          ),
+        }}
+      />
     </Drawer.Navigator>
   );
 };
